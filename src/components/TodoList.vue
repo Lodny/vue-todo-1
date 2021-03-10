@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <Todo v-for="todo in todos" :key="todo.id" :todo="todo" @toggleTodo="toggleTodo" @deleteTodo="deleteTodo" />
+    <!-- <Todo v-for="todo in todos" :key="todo.id" :todo="todo" @toggleTodo="toggleTodo" @deleteTodo="deleteTodo" /> -->
+    <Todo v-for="todo in todos" :key="todo.id" :todo="todo" />
   </div>
 </template>
 
@@ -13,9 +14,15 @@ export default {
   },
 
   props: {
-    todos: {
-      type: Array,
-      required: true,
+    // todos: {
+    //   type: Array,
+    //   required: true,
+    // },
+  },
+
+  computed: {
+    todos() {
+      return this.$store.state.todos;
     },
   },
 

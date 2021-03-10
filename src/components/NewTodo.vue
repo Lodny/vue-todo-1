@@ -20,7 +20,8 @@ export default {
   methods: {
     addTodo(e) {
       console.log("NewTodo : addTodo() : ", e.target.todo.value);
-      this.$emit("addTodo", e.target.todo.value);
+      // this.$emit("addTodo", e.target.todo.value);
+      this.$store.commit("ADD_TODO", e.target.todo.value);
       e.target.todo.value = "";
     },
   },

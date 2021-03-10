@@ -1,9 +1,11 @@
 <template>
   <div class="conatiner">
     <h1>Todo List</h1>
-    <NewTodo @addTodo="addTodo"></NewTodo>
+    <!-- <NewTodo @addTodo="addTodo"></NewTodo> -->
+    <NewTodo />
     <hr />
-    <TodoList :todos="todos" @toggleTodo="toggleTodo" @deleteTodo="deleteTodo"></TodoList>
+    <!-- <TodoList :todos="todos" @toggleTodo="toggleTodo" @deleteTodo="deleteTodo"></TodoList> -->
+    <TodoList />
   </div>
 </template>
 
@@ -19,11 +21,11 @@ export default {
 
   data() {
     return {
-      todos: [
-        { id: 1, text: "놀자 React ...", done: false },
-        { id: 2, text: "놀자 JavaScript ...", done: false },
-        { id: 3, text: "놀자 Vue ...", done: false },
-      ],
+      // todos: [
+      //   { id: 1, text: "놀자 React ...", done: false },
+      //   { id: 2, text: "놀자 JavaScript ...", done: false },
+      //   { id: 3, text: "놀자 Vue ...", done: false },
+      // ],
     };
   },
 

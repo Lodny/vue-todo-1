@@ -19,12 +19,14 @@ export default {
   methods: {
     toggleTodo(id) {
       console.log("Todo : toggleTodo() : ", id);
-      this.$emit("toggleTodo", id);
+      // this.$emit("toggleTodo", id);
+      this.$store.commit("TOGGLE_TODO", id);
     },
 
     deleteTodo(id) {
       console.log("Todo : deleteTodo() : ", id);
-      this.$emit("deleteTodo", id);
+      // this.$emit("deleteTodo", id);
+      this.$store.commit("DELETE_TODO", id);
     },
   },
 };
