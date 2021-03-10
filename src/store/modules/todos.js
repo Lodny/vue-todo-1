@@ -1,30 +1,12 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import axios from "axios";
-// import todos from "./modules/todos";
-// import users from "./modules/users";
-
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  // modules: {
-  //   todos,
-  //   users
-  // }
-
+export default {
   state: {
     todos: [
       { id: 1, text: "놀자 React ...", done: false },
       { id: 2, text: "놀자 JavaScript ...", done: false },
       { id: 3, text: "놀자 Vue ...", done: false }
-    ],
-    users: []
+    ]
   },
   mutations: {
-    GET_USERS(state, users) {
-      console.log("store : mutations : GET_USERS() : ", users);
-      state.users = users;
-    },
     ADD_TODO(state, text) {
       console.log("store : mutations : ADD_TODO() : ", text);
       state.todos.push({ id: Date.now(), text: text, done: false });
@@ -40,14 +22,6 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    // 시간이 걸리는 작업 - DB 작업 ... 비동기
-    getUsers({ commit }) {
-      console.log("store : actions : getUsers() : 비동기 작업 : ");
-      axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
-        console.log(res.data);
-        commit("GET_USERS", res.data);
-      });
-    },
     addTodo({ commit }, text) {
       // dispatch 는 언제?
       console.log("store : actions : addTodo() : 비동기 작업 : ", text);
@@ -69,4 +43,4 @@ export default new Vuex.Store({
       return state.todos.filter((todo) => todo.done).length;
     }
   }
-});
+};
