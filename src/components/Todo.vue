@@ -8,31 +8,34 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   props: {
     todo: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   methods: {
-    toggleTodo(id) {
-      console.log("Todo : toggleTodo() : ", id);
-      // this.$emit("toggleTodo", id);
-      // this.$store.commit("TOGGLE_TODO", id);
-      this.$store.dispatch("toggleTodo", id);
-      // this.$store.dispatch("todos/toggleTodo", id);
-    },
+    ...mapActions("TODOS", ["toggleTodo", "deleteTodo"]),
+    // toggleTodo(id) {
+    //   console.log("Todo : toggleTodo() : ", id);
+    //   // this.$emit("toggleTodo", id);
+    //   // this.$store.commit("TOGGLE_TODO", id);
+    //   // this.$store.dispatch("toggleTodo", id);
+    //   this.$store.dispatch("TODOS/toggleTodo", id);
+    // },
 
-    deleteTodo(id) {
-      console.log("Todo : deleteTodo() : ", id);
-      // this.$emit("deleteTodo", id);
-      // this.$store.commit("DELETE_TODO", id);
-      this.$store.dispatch("deleteTodo", id);
-      // this.$store.dispatch("todos/deleteTodo", id);
-    }
-  }
+    // deleteTodo(id) {
+    //   console.log("Todo : deleteTodo() : ", id);
+    //   // this.$emit("deleteTodo", id);
+    //   // this.$store.commit("DELETE_TODO", id);
+    //   // this.$store.dispatch("deleteTodo", id);
+    //   this.$store.dispatch("TODOS/deleteTodo", id);
+    // },
+  },
 };
 </script>
 

@@ -1,14 +1,15 @@
 import axios from "axios";
 
 export default {
+  namespaced: true,
   state: {
-    users: []
+    users: [],
   },
   mutations: {
     GET_USERS(state, users) {
       console.log("store : mutations : GET_USERS() : ", users);
       state.users = users;
-    }
+    },
   },
   actions: {
     getUsers({ commit }) {
@@ -17,6 +18,6 @@ export default {
         console.log(res.data);
         commit("GET_USERS", res.data);
       });
-    }
-  }
+    },
+  },
 };

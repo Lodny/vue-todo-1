@@ -13,7 +13,7 @@ export default {
 
   data() {
     return {
-      inputText: ""
+      inputText: "",
     };
   },
 
@@ -23,10 +23,11 @@ export default {
       // this.$emit("addTodo", e.target.todo.value);      // 상위에 전달
       // this.$store.commit("ADD_TODO", e.target.todo.value);  // mutation으로
       // this.$store.dispatch("todos/addTodo", e.target.todo.value); // action으로
-      this.$store.dispatch("addTodo", e.target.todo.value); // action으로
+      // this.$store.dispatch("addTodo", e.target.todo.value); // action으로
+      this.$store.dispatch("TODOS/addTodo", e.target.todo.value); // action으로
       e.target.todo.value = "";
-    }
-  }
+    },
+  },
 };
 </script>
 

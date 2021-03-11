@@ -7,11 +7,11 @@
 
 <script>
 import Todo from "@/components/Todo";
-// import { mapState } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   components: {
-    Todo
+    Todo,
   },
 
   props: {
@@ -22,24 +22,27 @@ export default {
   },
 
   computed: {
-    // ...mapState(["todos"])
-    todos() {
-      return this.$store.state.todos;
-    }
+    // ...mapState(["todos"]),
+    ...mapState("TODOS", ["todos"]),
+    // ...mapState({
+    //   todos: (state) => state.TODOS.todos,
+    // }),
+    // todos() {
+    //   return this.$store.state.TODOS.todos;
+    // },
   },
 
-  methods: {
-    // ...mapActions(["toggleTodo", "deelteTodo"])
-    toggleTodo(id) {
-      console.log("TodoList : toggleTodo() : ", id);
-      this.$emit("toggleTodo", id);
-    },
+  // methods: {
+  //   toggleTodo(id) {
+  //     console.log("TodoList : toggleTodo() : ", id);
+  //     this.$emit("toggleTodo", id);
+  //   },
 
-    deleteTodo(id) {
-      console.log("TodoList : deleteTodo() : ", id);
-      this.$emit("deleteTodo", id);
-    }
-  }
+  //   deleteTodo(id) {
+  //     console.log("TodoList : deleteTodo() : ", id);
+  //     this.$emit("deleteTodo", id);
+  //   },
+  // },
 };
 </script>
 

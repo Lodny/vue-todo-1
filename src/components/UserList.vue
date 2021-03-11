@@ -7,8 +7,8 @@
 
 <script>
 // import axios from "axios";
-// import { mapState, mapActions } from "vuex";
-// import { mapActions } from "vuex";
+import { mapState } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   // data() {
@@ -17,25 +17,29 @@ export default {
   //   };
   // },
   created() {
+    console.log("UserList : created() ");
     this.getUsers();
   },
   computed: {
-    // ...mapState(["users"])
-    // ...mapState({ users: (state) => state.users.users })
-    users() {
-      return this.$store.state.users;
-    }
+    // ...mapState(["users"]),
+    ...mapState("USERS", ["users"]),
+    // users() {
+    //   return this.$store.state.USERS.users;
+    // },
   },
   methods: {
-    // ...mapActions("users", ["getUsers"])
-    getUsers() {
-      // axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
-      //   console.log(res);
-      //   this.users = res.data;
-      // });
-      this.$store.dispatch("getUsers");
-    }
-  }
+    ...mapActions("USERS", ["getUsers"]),
+    // getUsers() {
+    //   console.log("UserList : methods : getUsers() : ");
+    //   // axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+    //   //   console.log(res);
+    //   //   this.users = res.data;
+    //   // });
+    //   this.$store.dispatch("USERS/getUsers");
+    //   // this.$store.dispatch("getUsers");
+    //   // this.$emit("getUsers");
+    // },
+  },
 };
 </script>
 
